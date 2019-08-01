@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Meta from "./Meta";
 
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { css } from "@emotion/core";
 
 const color = "white";
 
