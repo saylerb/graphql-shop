@@ -19,6 +19,15 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "babel-plugin-emotion": "^10.0.14",
     "prettier": "1.18.2"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      "emotion"
+    ]
   }
 }
