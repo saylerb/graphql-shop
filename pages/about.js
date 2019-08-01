@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 
+import Link from "next/link";
+
 class About extends Component {
   render() {
     return (
       <div>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
         <p>This is the about page</p>
       </div>
     );
