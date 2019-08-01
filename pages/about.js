@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <div>
         <Link href="/">
-          <a>Home</a>
+          <a title="Home Page">Home</a>
         </Link>
         <p>This is the about page</p>
       </div>
