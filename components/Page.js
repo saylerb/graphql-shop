@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Meta from "./Meta";
 
 import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
 const color = "white";
 
@@ -16,17 +17,24 @@ const Button = styled.button`
   }
 `;
 
-class Page extends Component {
-  render() {
-    return (
-      <div>
-        <Meta />
-        <Header />
-        <Button>Click Me!</Button>
-        {this.props.children}
+const Page = props => {
+  const [fontSize, setFontSize] = useState(100);
+
+  return (
+    <div>
+      <Meta />
+      <Header />
+      <Button onClick={() => setFontSize(fontSize + 10)}>Click Me!</Button>
+      <div
+        css={css`
+          font-size: ${fontSize}px;
+        `}
+      >
+        🌱
       </div>
-    );
-  }
-}
+      {props.children}
+    </div>
+  );
+};
 
 export default Page;
