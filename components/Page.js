@@ -3,7 +3,7 @@ import Header from "./Header";
 import Meta from "./Meta";
 
 import styled from "@emotion/styled";
-import { css } from "@emotion/core";
+import { css, keyframes } from "@emotion/core";
 
 const color = "white";
 
@@ -14,6 +14,12 @@ const Button = styled.button`
   border-radius: 4px;
   &:hover {
     color: ${color};
+  }
+`;
+
+const spin = keyframes`
+  to {
+    transform: rotate(360deg)
   }
 `;
 
@@ -28,6 +34,12 @@ const Page = props => {
       <div
         css={css`
           font-size: ${fontSize}px;
+          display: inline-block;
+          animation: 1s ${spin} linear infinite;
+
+          &:hover {
+            animation: 1s ${spin} linear infinite reverse;
+          }
         `}
       >
         🌱
