@@ -35,10 +35,10 @@ const Page = props => {
         css={css`
           font-size: ${fontSize}px;
           display: inline-block;
-          animation: 1s ${spin} linear infinite;
+          animation: 3s ${spin} linear infinite;
 
           &:hover {
-            animation: 1s ${spin} linear infinite reverse;
+            animation: 3s ${spin} linear infinite reverse;
           }
         `}
       >
