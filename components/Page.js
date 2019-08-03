@@ -5,15 +5,13 @@ import Meta from "./Meta";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
 
-const color = "white";
-
 const Button = styled.button`
   padding: 32px;
-  background-color: hotpink;
+  background-color: ${props => (props.primary ? "hotpink" : "turquoise")};
   font-size: 24px;
   border-radius: 4px;
   &:hover {
-    color: ${color};
+    color: white;
   }
 `;
 
@@ -24,21 +22,33 @@ const spin = keyframes`
 `;
 
 const Page = props => {
-  const [fontSize, setFontSize] = useState(100);
+  const [spinSpeed, setSpinSpeed] = useState(2);
 
   return (
     <div>
       <Meta />
       <Header />
-      <Button onClick={() => setFontSize(fontSize + 10)}>Click Me!</Button>
+      <span>{spinSpeed}s</span>
+      <Button primary onClick={() => setSpinSpeed(spinSpeed + 0.5)}>
+        Slowers
+      </Button>
+      <Button
+        onClick={() => {
+          if (spinSpeed - 0.5 > 0) {
+            setSpinSpeed(spinSpeed - 0.5);
+          }
+        }}
+      >
+        Fasters
+      </Button>
       <div
         css={css`
-          font-size: ${fontSize}px;
+          font-size: 100px;
           display: inline-block;
-          animation: 3s ${spin} linear infinite;
+          animation: ${spinSpeed}s ${spin} linear infinite;
 
           &:hover {
-            animation: 3s ${spin} linear infinite reverse;
+            animation: ${spinSpeed}s ${spin} linear infinite reverse;
           }
         `}
       >
