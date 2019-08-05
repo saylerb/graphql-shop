@@ -8,11 +8,13 @@ import { ThemeProvider } from "emotion-theming";
 const theme = {
   red: "#D66853",
   maroon: "#7D4E57",
-  grey: "#64156",
+  grey: "#364156",
+  lightGrey: "#A3A8B2",
   black: "#11151C",
   green: "#04471C",
   maxWidth: "1000px",
-  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
+  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)",
+  desktopSize: "1300px"
 };
 
 const StyledPage = styled.div`

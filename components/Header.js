@@ -6,6 +6,7 @@ const Logo = styled.h1`
   font-size: 4em;
   margin-left: 2rem;
   /* position: relative; */
+  /* z-index: 2; */
   transform: skew(-7deg);
   a {
     padding: 0.5rem 1rem;
@@ -14,14 +15,35 @@ const Logo = styled.h1`
     text-transform: lowercase;
     text-decoration: none;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: ${props => props.theme.desktopSize}) {
     margin: 0;
     text-align: center;
   }
 `;
 
+const StyledHeader = styled.header`
+  .bar {
+    border-bottom: 5px solid ${props => props.theme.black};
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: stretch;
+
+    @media (max-width: ${props => props.theme.desktopSize}) {
+      grid-template-columns: 1fr;
+      justifiy-content: center;
+    }
+  }
+
+  .sub-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid ${props => props.theme.lightGrey};
+  }
+`;
+
 const Header = () => (
-  <div>
+  <StyledHeader>
     <div className="bar">
       <Logo>
         <Link href="/">
@@ -35,7 +57,7 @@ const Header = () => (
       <p>Search</p>
     </div>
     <div>Cart</div>
-  </div>
+  </StyledHeader>
 );
 
 export default Header;
