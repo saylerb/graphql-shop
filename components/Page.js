@@ -4,6 +4,7 @@ import Meta from "./Meta";
 
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
+import { Global, css } from "@emotion/core";
 
 const theme = {
   red: "#D66853",
@@ -33,6 +34,42 @@ const Inner = styled.div`
 const Page = props => {
   return (
     <ThemeProvider theme={theme}>
+      <Global
+        styles={theme => css`
+          @font-face {
+            font-family: "Merriweather";
+            font-style: normal;
+            font-weight: 400;
+            src: local("Merriweather Regular"), local("Merriweather-Regular"),
+              url("/static/merriweather-v21-latin-regular.woff2")
+                format("woff2"),
+              url("/static/merriweather-v21-latin-regular.woff") format("woff");
+          }
+          html {
+            box-sizing: border-box;
+            font-size: 10px;
+          }
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+          body {
+            font-family: "Merriweather", serif;
+            padding: 0;
+            margin: 0;
+            font-size: 1.5rem;
+            line-height: 2;
+          }
+          a {
+            text-decoration: none;
+            color: ${theme.green};
+          }
+          a:hover {
+            color: ${theme.red};
+          }
+        `}
+      />
       <StyledPage>
         <Meta />
         <Header />
